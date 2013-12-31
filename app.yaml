@@ -1,0 +1,14 @@
+application: smsbackup-analytics
+version: 1
+runtime: php
+api_version: 1
+
+handlers:
+- url: /
+  script: index.php
+
+- url: /get.php
+  script: get.php
+
+- url: /home.php
+  script: home.php
