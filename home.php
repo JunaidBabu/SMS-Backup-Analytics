@@ -225,6 +225,7 @@ function datamaker(data) {
     <img src="http://i.imgur.com/MPw8nvR.gif"/>
   </div>
   <body>
+    <?php include_once("analytics.php");?>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
