@@ -40,7 +40,7 @@ if (isset($_GET['change'])) {
 if (isset($_GET['code'])) {
   $client->authenticate($_GET['code']);
   $_SESSION['token'] = $client->getAccessToken();
-  header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
+  header('Location: http://' . $_SERVER['HTTP_HOST']);
 }
 
 if (isset($_SESSION['token'])) {
