@@ -10,5 +10,5 @@ handlers:
 - url: /get.php
   script: get.php
 
-- url: /home.php
+- url: /home
   script: home.php

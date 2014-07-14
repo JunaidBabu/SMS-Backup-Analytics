@@ -12,7 +12,7 @@ $client->setApplicationName("Google Calendar PHP Starter Application");
 $client->setClientId('776685009882-v1kcqutjjt9k7h1e2qobjugqrgn9srel.apps.googleusercontent.com');
 $client->setClientSecret('sDK-e4GvFjp58ZTx23c4FQjz');
 //echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
+$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST']);
 $client->setScopes(array('https://www.googleapis.com/auth/userinfo.email',
         'https://www.googleapis.com/auth/plus.me',
         'https://www.googleapis.com/auth/calendar'));  
@@ -55,7 +55,7 @@ if ($client->getAccessToken()) {
 
 //print_r($user['email']);
   if(isset($_SESSION['calendar'])){
-    echo("<script>window.location = 'home.php';</script>");
+    echo("<script>window.location = 'home';</script>");
   }
   $calList = $cal->calendarList->listCalendarList();
   //print_r($_SESSION['token'], true);
