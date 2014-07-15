@@ -146,6 +146,8 @@ var totaldata;
 $("#loading").hide();
 
 function Plot() {
+ 
+    totaldata = {};
     var start = $('#start').val();
     var end = $('#end').val();
     url = "get.php?start=" + start + "&end=" + end;
@@ -202,6 +204,7 @@ function datamaker(data) {
 
     }
    var html="";
+    $(".table").html("<thead><tr><th>Name</th><th>Number</th><th>Total Calls</th><th>Total Call Time</th></tr></thead>");
     $(".table").append(html);
     for (var key=0, size=result.length; key<size; key++){
        html += '<tr><td>'
@@ -282,14 +285,7 @@ function datamaker(data) {
     <div id="chart_div2">
     </div>
     <table id="myTable" class="table tablesorter">
-      <thead>
-          <tr>
-            <th>Name</th>
-            <th>Number</th>
-            <th>Total Calls</th>
-            <th>Total Call Time</th>
-          </tr>
-        </thead>
+      
 </table>
   </div>
   </body>
