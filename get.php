@@ -48,7 +48,8 @@ $a++;
 //$events['items'] = $totalResult[1];
 //echo sizeof($events['items']);
 $json = json_encode($totalResult);
-//echo $json;
+// echo $json;
+// return;
 //$data = json_decode($json);
 
 //echo json_encode($events['items'][$i]);
@@ -61,6 +62,10 @@ for ($j=0; isset($totalResult[$j]);$j++){
 		
 		$id = ($j*sizeof($totalResult[$j])+$i+1)." : ";
 		$strDes = $events['items'][$i]['description'];
+
+		if (strpos($strDes,'START') !== false) { // Should take care of the Notifications.
+		    break;
+		}
 
 		$number = getStringBetween($strDes, ":", "(");
 		$type = getStringBetween($strDes, "(", "call");
