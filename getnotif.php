@@ -69,7 +69,7 @@ if ($client->getAccessToken()) {
         
         for ($i = 0; isset($events['items'][$i]); $i++) {
             
-            $id     = ($j * sizeof($totalResult[$j]) + $i + 1) . " : ";
+            $id     = ($j * sizeof($totalResult[$j]) + $i + 1);
             $strDes = $events['items'][$i]['description'];
             
             if (strpos($strDes, 'START') !== false) { // Should take care of the Notifications.
@@ -77,13 +77,13 @@ if ($client->getAccessToken()) {
                 
                 
                 $number       = getStringBetween($strDes, ":", "(");
-                $type         = getStringBetween($strDes, "(", "call");
+                $type         = "notif";
                 $time_seconds = 0;
                 $summary      = $events['items'][$i]['summary'];
                 $start        = $events['items'][$i]['start']['dateTime'];
                 //$end = $events['items'][$i]['end']['dateTime'];
                 
-                $summary=json_decode(explode("START ", $summary)[1]);//getStringBetween($summary, "START", "");
+                $summary=json_decode(explode("START ", $summary)[1]);  // This line is magic
                 
                 
                 
