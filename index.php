@@ -16,6 +16,7 @@ $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST']);
 $client->setScopes(array('https://www.googleapis.com/auth/userinfo.email',
         'https://www.googleapis.com/auth/plus.me',
         'https://www.googleapis.com/auth/calendar'));  
+$client->setApprovalPrompt ("auto");
 //echo "Waassaap";
 // Visit https://code.google.com/apis/console?api=calendar to generate your
 // client id, client secret, and to register your redirect uri.
