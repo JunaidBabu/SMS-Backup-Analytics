@@ -12,3 +12,6 @@ handlers:
 
 - url: /home
   script: home.php
+
+- url: /getnotif
+  script: getnotif.php
