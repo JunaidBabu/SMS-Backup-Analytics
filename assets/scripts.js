@@ -231,7 +231,9 @@ function Notif(){
                 desc = totaldata[i].summary["android.text"];
             }
                 html='<li><table><tr><th rowspan="2"><img src='+getImage(totaldata[i].summary["package"])+' width="40" height="40"></th><th>'
-                +'<h4>'+totaldata[i].summary["android.title"]+'</h2></th>'
+                +'<h4>'+totaldata[i].summary["android.title"]+'</h2><th>'
+                +'<div id ="map'+i+'" style="height: 253px; width: 200px" ></div>'
+                +'</th></th>'
                 +'</tr><tr><td>'
                 +'<h6>'+desc+'</h4>'
                 +'</td></tr><tr><td colspan="2">'
@@ -239,8 +241,8 @@ function Notif(){
                 +'</td></tr></table></li>';
                 
                 $(".notiful").append(html);
-           
-          
+          if(totaldata[100].summary["location"]!=undefined) 
+              InitializeMap(document.getElementById("map"+i), totaldata[100].summary["location"])
         }
         //console.log(totaldata);
         // obj = JSON.parse(totaldata);

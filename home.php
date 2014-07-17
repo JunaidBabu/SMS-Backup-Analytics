@@ -16,6 +16,7 @@
     </script>
     <script type="text/javascript" src="assets/scripts.js">
     </script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </head>
 <div id="loading">
     <img src="http://i.imgur.com/MPw8nvR.gif" />
@@ -90,9 +91,37 @@
         <table id="myTable" class="table tablesorter"></table>
 
 
+<script language="javascript" type="text/javascript">
+
+    var map;
+    var geocoder;
+    function InitializeMap(obj, location) {
+        loc = location.split(', ')
+        var latlng = new google.maps.LatLng(loc[0], loc[1]);
+        var myOptions =
+        {
+            zoom: 13,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            disableDefaultUI: true
+        };
+        map = new google.maps.Map(obj, myOptions);
+
+        var marker = new google.maps.Marker({
+    position: latlng,
+    map: map
+});
+        marker.setMap(map);
+    }
+
+</script>
         <div class="singlenotif">
         <ul class="notiful">
-          <li><table><tbody><tr><th rowspan="2"><img src="https://lh4.ggpht.com/a5tbkHBpZ2TGJQC-Rco4BTJOOR5LTgzB6YbLrxswlQsLi6Y-voGksMLIUybaCIaaFgA=w300-rw" width="40" height="40"></th><th><h4>BetaTurtle</h4></th></tr><tr><td><h6>undefined</h6></td></tr><tr><td colspan="2"><h6>com.google.android.talk 2014-07-17T10:15:06+05:30</h6></td></tr></tbody></table></li>
+          <li><table><tbody><tr><th rowspan="2"><img src="https://lh4.ggpht.com/a5tbkHBpZ2TGJQC-Rco4BTJOOR5LTgzB6YbLrxswlQsLi6Y-voGksMLIUybaCIaaFgA=w300-rw" width="40" height="40"></th><th><h4>BetaTurtle</h4></th>
+          <th>
+          <div id ="map" style="height: 253px; width: 200px" >
+</div>
+          </th></tr><tr><td><h6>undefined</h6></td></tr><tr><td colspan="2"><h6>com.google.android.talk 2014-07-17T10:15:06+05:30</h6></td></tr></tbody></table></li>
         </ul>
 
             
