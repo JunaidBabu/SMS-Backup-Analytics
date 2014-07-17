@@ -185,8 +185,10 @@ arr["com.google.android.music"] = "https://lh5.ggpht.com/u0cJl6arXfebTaDYDuuG4fO
 arr["com.zegoggles.smssync"] = "https://lh6.ggpht.com/84qKKFHW0D7cRuLKHOLnPRVl38dqj5xBOWZS-cz5d3-OsINdJr6t83s12P2RQFxX23E=w300-rw";
 arr["com.google.android.talk"] = "https://lh4.ggpht.com/a5tbkHBpZ2TGJQC-Rco4BTJOOR5LTgzB6YbLrxswlQsLi6Y-voGksMLIUybaCIaaFgA=w300-rw";
 arr["com.whatsapp"] = "https://lh3.ggpht.com/bwBj9B4fGmTN_of0JS8xdkwklCmqCzSne1tJ9RaUNRQIzU-FEyCuFWzlsLyyPoTbyJE=w300-rw";
-
-
+arr["com.bsb.hike"] = "https://lh4.ggpht.com/wrztPeS7-tKsuQhAdQKXlkenSeezI3zCCDrRdObCyr78jgnryLttx8Cupps4T7MjmeI=w300-rw";
+arr["com.android.mms"] = "https://lh4.ggpht.com/anRjHkWyeCKj_tohhFxitR9y3RMM1J5qVAw2fhUvJQS1CIqxldpiq3Uak7nR-o0K8oY=w170";
+arr["jackpal.androidterm"] = "https://lh6.ggpht.com/MbuukV5EmgK33-yF9GADXeJSZV21_rk2R2y_ZHbL_5EC0N45_z-eYeNPVyKOgYiJRWs7=w300-rw";
+arr["com.google.android.apps.plus"] = "https://lh4.ggpht.com/7M9ep-JD6b3vZoM-8ccG8U-OlESBG2kqSXWLrO1gKFUmjS4NuEjHmcCE8U1IPpLyK2w=w300-rw";
 
 function getImage(package){
     if (arr[package]==undefined){
@@ -207,6 +209,20 @@ function Notif(){
         //$(".notiful").append('<li>'+totaldata[100].summary["android.text"]+'</li>');
         for(i=1; i<totaldata.length; i++){
 
+            datePast = new Date((totaldata[i].start || "").replace(/-/g,"/").replace(/[TZ]/g," "));
+            dateNow = new Date();
+            
+            var seconds = Math.floor((dateNow - (datePast))/1000);
+            var minutes = Math.floor(seconds/60);
+            var hours = Math.floor(minutes/60);
+            var days = Math.floor(hours/24);
+            
+            seconds = seconds-(minutes*60);
+            minutes = minutes-(hours*60);
+            hours = hours-(24*days)
+
+            timeDes = days+" days, "+hours+" hours, "+minutes+" minutes and "+seconds+" seconds ago.";
+
             if(typeof totaldata[i].summary["android.textLines"] != "undefined"){
                 desc = totaldata[i].summary["android.textLines"];
             } else if(totaldata[i].summary["android.text"] == "null" || totaldata[i].summary["android.text"] == "undefine"){
@@ -219,7 +235,7 @@ function Notif(){
                 +'</tr><tr><td>'
                 +'<h6>'+desc+'</h4>'
                 +'</td></tr><tr><td colspan="2">'
-                +'<h6>'+totaldata[i].summary["package"]+" "+totaldata[i].start+'</h6>'
+                +'<h6>'+totaldata[i].summary["package"]+" "+datePast+"("+timeDes+")"+'</h6>'
                 +'</td></tr></table></li>';
                 
                 $(".notiful").append(html);

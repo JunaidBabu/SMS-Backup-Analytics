@@ -92,9 +92,7 @@
 
         <div class="singlenotif">
         <ul class="notiful">
-          <li>
-            
-          </li>
+          <li><table><tbody><tr><th rowspan="2"><img src="https://lh4.ggpht.com/a5tbkHBpZ2TGJQC-Rco4BTJOOR5LTgzB6YbLrxswlQsLi6Y-voGksMLIUybaCIaaFgA=w300-rw" width="40" height="40"></th><th><h4>BetaTurtle</h4></th></tr><tr><td><h6>undefined</h6></td></tr><tr><td colspan="2"><h6>com.google.android.talk 2014-07-17T10:15:06+05:30</h6></td></tr></tbody></table></li>
         </ul>
 
             
